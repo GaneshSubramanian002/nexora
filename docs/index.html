@@ -1,0 +1,4622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nexora | Intelligent Recruitment</title>
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background: #f6f4ef;
+            color: #172033;
+            min-height: 100vh;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        nav {
+            height: 72px;
+
+            background: #ffffff;
+
+            border-bottom:
+                1px solid #e4dfd6;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding:
+                0 7%;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+        }
+
+
+        .logo {
+            font-size: 23px;
+            font-weight: 750;
+
+            letter-spacing:
+                -0.6px;
+
+            color: #172033;
+        }
+
+
+        .logo span {
+            color: #7b6d5c;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+
+            list-style: none;
+        }
+
+
+        .nav-links button {
+            border: none;
+            background: none;
+
+            color: #687181;
+
+            font-size: 14px;
+
+            padding:
+                8px 0;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .nav-links button:hover,
+        .nav-links button.active {
+            color: #172033;
+        }
+
+
+        /* =====================================================
+           PAGE SYSTEM
+        ===================================================== */
+
+        .page {
+            display: none;
+        }
+
+
+        .page.active {
+            display: block;
+        }
+
+
+        /* =====================================================
+           HOME
+        ===================================================== */
+
+        .hero {
+            max-width: 1050px;
+
+            margin:
+                auto;
+
+            padding:
+                95px 25px 80px;
+
+            text-align: center;
+        }
+
+
+        .hero-tag {
+            display: inline-block;
+
+            background: #ebe6dd;
+
+            color: #746957;
+
+            border-radius:
+                30px;
+
+            padding:
+                7px 14px;
+
+            font-size: 12px;
+
+            font-weight: 650;
+
+            margin-bottom:
+                22px;
+        }
+
+
+        .hero h1 {
+            font-size:
+                clamp(
+                    42px,
+                    6vw,
+                    72px
+                );
+
+            line-height:
+                1.05;
+
+            letter-spacing:
+                -3px;
+
+            margin-bottom:
+                22px;
+        }
+
+
+        .hero h1 span {
+            color: #7b6d5c;
+        }
+
+
+        .hero p {
+            max-width:
+                680px;
+
+            margin:
+                auto;
+
+            color: #697180;
+
+            font-size:
+                17px;
+
+            line-height:
+                1.7;
+        }
+
+
+        /* =====================================================
+           SEARCH CARD
+        ===================================================== */
+
+        .search-card {
+            max-width:
+                850px;
+
+            margin:
+                42px auto 0;
+
+            background:
+                #ffffff;
+
+            border:
+                1px solid #ded8ce;
+
+            border-radius:
+                18px;
+
+            padding:
+                22px;
+
+            box-shadow:
+                0 12px 35px
+                rgba(
+                    31,
+                    37,
+                    48,
+                    0.06
+                );
+        }
+
+
+        .search-card textarea {
+            width: 100%;
+
+            min-height:
+                130px;
+
+            border:
+                1px solid #ddd7cd;
+
+            border-radius:
+                12px;
+
+            resize:
+                vertical;
+
+            padding:
+                16px;
+
+            outline:
+                none;
+
+            font-size:
+                15px;
+
+            line-height:
+                1.6;
+
+            color:
+                #172033;
+
+            background:
+                #fbfaf8;
+        }
+
+
+        .search-card textarea:focus {
+            border-color:
+                #aaa093;
+        }
+
+
+        .search-actions {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-top:
+                16px;
+
+            gap:
+                15px;
+        }
+
+
+        .search-hint {
+            color:
+                #858c97;
+
+            font-size:
+                13px;
+
+            text-align:
+                left;
+        }
+
+
+        .primary-button {
+            background:
+                #172033;
+
+            color:
+                #ffffff;
+
+            border:
+                none;
+
+            border-radius:
+                10px;
+
+            padding:
+                12px 22px;
+
+            font-size:
+                14px;
+
+            font-weight:
+                650;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .primary-button:hover {
+            background:
+                #2b3547;
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        .primary-button:disabled {
+            opacity:
+                0.55;
+
+            cursor:
+                not-allowed;
+
+            transform:
+                none;
+        }
+
+
+        /* =====================================================
+           SEARCH EXAMPLES
+        ===================================================== */
+
+        .examples {
+            margin-top:
+                18px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                8px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .example {
+            border:
+                1px solid #ddd7cd;
+
+            background:
+                #fbfaf8;
+
+            color:
+                #6e7560;
+
+            border-radius:
+                20px;
+
+            padding:
+                7px 12px;
+
+            font-size:
+                12px;
+        }
+
+
+        .example:hover {
+            background:
+                #eee9df;
+        }
+
+
+        /* =====================================================
+           UPLOAD
+        ===================================================== */
+
+        .upload-area {
+            margin-top:
+                20px;
+
+            padding-top:
+                20px;
+
+            border-top:
+                1px solid #ece7df;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                12px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .upload-button {
+            background:
+                #ffffff;
+
+            color:
+                #172033;
+
+            border:
+                1px solid #d8d2c8;
+
+            padding:
+                11px 20px;
+
+            border-radius:
+                10px;
+
+            font-size:
+                14px;
+
+            font-weight:
+                650;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .upload-button:hover {
+            background:
+                #eee9df;
+        }
+
+
+        .upload-button:disabled {
+            opacity:
+                0.55;
+
+            cursor:
+                not-allowed;
+        }
+
+
+        #uploadStatus {
+            color:
+                #7c8593;
+
+            font-size:
+                13px;
+
+            max-width:
+                350px;
+
+            overflow:
+                hidden;
+
+            text-overflow:
+                ellipsis;
+
+            white-space:
+                nowrap;
+        }
+
+
+        /* =====================================================
+           GENERIC PAGE
+        ===================================================== */
+
+        .page-container {
+            max-width:
+                1120px;
+
+            margin:
+                auto;
+
+            padding:
+                65px 25px 80px;
+        }
+
+
+        .page-header {
+            margin-bottom:
+                35px;
+        }
+
+
+        .page-header h1 {
+            font-size:
+                38px;
+
+            letter-spacing:
+                -1.5px;
+
+            margin-bottom:
+                8px;
+        }
+
+
+        .page-header p {
+            color:
+                #747d8c;
+
+            line-height:
+                1.6;
+        }
+
+
+        /* =====================================================
+           SEARCH SUMMARY
+        ===================================================== */
+
+        .search-summary {
+            background:
+                #ffffff;
+
+            border:
+                1px solid #ded8ce;
+
+            border-radius:
+                13px;
+
+            padding:
+                16px 18px;
+
+            margin-bottom:
+                28px;
+        }
+
+
+        .search-summary-label {
+            color:
+                #8a909b;
+
+            font-size:
+                12px;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.7px;
+
+            margin-bottom:
+                7px;
+        }
+
+
+        .search-summary-text {
+            color:
+                #273143;
+
+            font-size:
+                15px;
+
+            line-height:
+                1.5;
+        }
+
+
+        /* =====================================================
+           SECTION HEADING
+        ===================================================== */
+
+        .section-heading {
+            font-size:
+                20px;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        /* =====================================================
+           TOP THREE
+        ===================================================== */
+
+        .top-three {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    1fr
+                );
+
+            gap:
+                18px;
+
+            margin-bottom:
+                45px;
+        }
+
+
+        .candidate-card {
+            background:
+                #ffffff;
+
+            border:
+                1px solid #ded8ce;
+
+            border-radius:
+                15px;
+
+            padding:
+                22px;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .candidate-card:hover {
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(
+                    31,
+                    37,
+                    48,
+                    0.07
+                );
+        }
+
+
+        .candidate-rank {
+            font-size:
+                12px;
+
+            color:
+                #8a909b;
+
+            margin-bottom:
+                14px;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.8px;
+        }
+
+
+        .candidate-name {
+            font-size:
+                20px;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        .candidate-email {
+            font-size:
+                12px;
+
+            color:
+                #89909c;
+
+            margin-bottom:
+                18px;
+
+            word-break:
+                break-word;
+        }
+
+
+        .candidate-score {
+            font-size:
+                32px;
+
+            font-weight:
+                750;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        .candidate-score-label {
+            color:
+                #858c97;
+
+            font-size:
+                12px;
+
+            margin-bottom:
+                17px;
+        }
+
+
+        .mini-score {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            font-size:
+                12px;
+
+            color:
+                #687181;
+
+            margin-top:
+                8px;
+        }
+
+
+        .mini-score strong {
+            color:
+                #273143;
+        }
+
+
+        .view-button {
+            width:
+                100%;
+
+            margin-top:
+                18px;
+
+            background:
+                #f1eee8;
+
+            color:
+                #172033;
+
+            border:
+                1px solid #ded8ce;
+
+            border-radius:
+                9px;
+
+            padding:
+                10px;
+
+            font-size:
+                13px;
+
+            font-weight:
+                650;
+        }
+
+
+        .view-button:hover {
+            background:
+                #e8e2d8;
+        }
+
+
+        /* =====================================================
+           ALL CANDIDATES
+        ===================================================== */
+
+        .candidate-list {
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                10px;
+        }
+
+
+        .list-row {
+            background:
+                #ffffff;
+
+            border:
+                1px solid #e2ddd5;
+
+            border-radius:
+                12px;
+
+            padding:
+                15px 18px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                60px
+                1fr
+                120px
+                100px;
+
+            align-items:
+                center;
+
+            gap:
+                15px;
+        }
+
+
+        .list-rank {
+            font-weight:
+                700;
+
+            color:
+                #7b6d5c;
+        }
+
+
+        .list-name {
+            font-weight:
+                650;
+        }
+
+
+        .list-email {
+            color:
+                #89909c;
+
+            font-size:
+                12px;
+
+            margin-top:
+                3px;
+        }
+
+
+        .list-score {
+            font-weight:
+                700;
+        }
+
+
+        .list-button {
+            border:
+                1px solid #ddd7cd;
+
+            background:
+                #ffffff;
+
+            padding:
+                8px 12px;
+
+            border-radius:
+                8px;
+
+            font-size:
+                12px;
+        }
+
+
+        .list-button:hover {
+            background:
+                #f0ece5;
+        }
+
+
+        /* =====================================================
+           LOADING / ERROR
+        ===================================================== */
+
+        .loading {
+            padding:
+                50px;
+
+            text-align:
+                center;
+
+            color:
+                #747d8c;
+        }
+
+
+        .error-box {
+            background:
+                #fff8f5;
+
+            border:
+                1px solid #ead4ca;
+
+            color:
+                #8a5747;
+
+            border-radius:
+                12px;
+
+            padding:
+                18px;
+
+            line-height:
+                1.6;
+        }
+
+
+        /* =====================================================
+           DETAILS
+        ===================================================== */
+
+        .back-button {
+            background:
+                none;
+
+            border:
+                none;
+
+            color:
+                #737b89;
+
+            font-size:
+                13px;
+
+            padding:
+                0;
+
+            margin-bottom:
+                24px;
+        }
+
+
+        .back-button:hover {
+            color:
+                #172033;
+        }
+
+
+        .details-header {
+            background:
+                #ffffff;
+
+            border:
+                1px solid #ded8ce;
+
+            border-radius:
+                16px;
+
+            padding:
+                28px;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            gap:
+                30px;
+
+            align-items:
+                flex-start;
+        }
+
+
+        .details-rank {
+            display:
+                inline-block;
+
+            background:
+                #eee9df;
+
+            color:
+                #706350;
+
+            border-radius:
+                20px;
+
+            padding:
+                6px 11px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                650;
+
+            margin-bottom:
+                13px;
+        }
+
+
+        .details-name {
+            font-size:
+                34px;
+
+            letter-spacing:
+                -1px;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .details-contact {
+            color:
+                #777f8d;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.8;
+        }
+
+
+        .details-final {
+            text-align:
+                right;
+
+            min-width:
+                150px;
+        }
+
+
+        .score-label {
+            color:
+                #8b919c;
+
+            font-size:
+                11px;
+
+            letter-spacing:
+                1px;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        .details-final-number {
+            font-size:
+                42px;
+
+            font-weight:
+                800;
+        }
+
+
+        /* =====================================================
+           SCORE GRID
+        ===================================================== */
+
+        .score-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    1fr
+                );
+
+            gap:
+                13px;
+
+            margin-top:
+                18px;
+        }
+
+
+        .score-box {
+            background:
+                #ffffff;
+
+            border:
+                1px solid #ded8ce;
+
+            border-radius:
+                13px;
+
+            padding:
+                18px;
+        }
+
+
+        .score-box-title {
+            color:
+                #7d8592;
+
+            font-size:
+                12px;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .score-box-value {
+            font-size:
+                23px;
+
+            font-weight:
+                750;
+        }
+
+
+        /* =====================================================
+           DETAIL SECTION
+        ===================================================== */
+
+        .detail-section {
+            margin-top:
+                20px;
+
+            background:
+                #ffffff;
+
+            border:
+                1px solid #ded8ce;
+
+            border-radius:
+                15px;
+
+            padding:
+                24px;
+        }
+
+
+        .detail-section h3 {
+            font-size:
+                18px;
+
+            margin-bottom:
+                17px;
+        }
+
+
+        /* =====================================================
+           EXPLANATION
+        ===================================================== */
+
+        .explanation-box {
+            background:
+                #f7f4ee;
+
+            border:
+                1px solid #ded8ce;
+
+            border-radius:
+                12px;
+
+            padding:
+                20px;
+        }
+
+
+        .explanation-main {
+            font-size:
+                16px;
+
+            font-weight:
+                650;
+
+            color:
+                #172033;
+
+            line-height:
+                1.6;
+
+            margin-bottom:
+                18px;
+        }
+
+
+        .explanation-points {
+            display:
+                grid;
+
+            gap:
+                10px;
+        }
+
+
+        .explanation-point {
+            font-size:
+                14px;
+
+            line-height:
+                1.5;
+        }
+
+
+        .explanation-point.good {
+            color:
+                #536b5b;
+        }
+
+
+        .explanation-point.warning {
+            color:
+                #866d52;
+        }
+
+
+        /* =====================================================
+           WHY HIGHER
+        ===================================================== */
+
+        .why-higher {
+            background:
+                #172033;
+
+            color:
+                #ffffff;
+
+            border-radius:
+                13px;
+
+            padding:
+                20px;
+        }
+
+
+        .why-higher h4 {
+            font-size:
+                15px;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .why-higher p {
+            color:
+                #d7dce3;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.7;
+        }
+
+
+        /* =====================================================
+           SKILL GROUPS
+        ===================================================== */
+
+        .skill-groups {
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                18px;
+        }
+
+
+        .skill-group {
+            border:
+                1px solid #e2ddd5;
+
+            border-radius:
+                11px;
+
+            padding:
+                15px;
+        }
+
+
+        .skill-group-title {
+            font-size:
+                12px;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.7px;
+
+            color:
+                #7c8490;
+
+            margin-bottom:
+                11px;
+        }
+
+
+        .skills {
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                7px;
+        }
+
+
+        .skill {
+            display:
+                inline-block;
+
+            background:
+                #f0ece5;
+
+            border:
+                1px solid #ded8ce;
+
+            color:
+                #4f5969;
+
+            border-radius:
+                20px;
+
+            padding:
+                6px 10px;
+
+            font-size:
+                12px;
+        }
+
+
+        .skill.match {
+            background:
+                #edf2ed;
+
+            border-color:
+                #d5e0d6;
+
+            color:
+                #526b59;
+        }
+
+
+        .skill.missing {
+            background:
+                #f6eeea;
+
+            border-color:
+                #ead8cf;
+
+            color:
+                #856455;
+        }
+
+
+        /* =====================================================
+           DETAIL CONTENT
+        ===================================================== */
+
+        .detail-content {
+            color:
+                #687181;
+
+            font-size:
+                14px;
+
+            line-height:
+                1.75;
+
+            white-space:
+                pre-line;
+        }
+
+
+        .detail-content.empty {
+            color:
+                #a0a6af;
+
+            font-style:
+                italic;
+        }
+
+
+        /* =====================================================
+           DASHBOARD
+        ===================================================== */
+
+        .dashboard-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    1fr
+                );
+
+            gap:
+                15px;
+
+            margin-bottom:
+                30px;
+        }
+
+
+        .stat-card {
+            background:
+                #ffffff;
+
+            border:
+                1px solid #ded8ce;
+
+            border-radius:
+                14px;
+
+            padding:
+                23px;
+        }
+
+
+        .stat-title {
+            color:
+                #818894;
+
+            font-size:
+                12px;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .stat-value {
+            font-size:
+                30px;
+
+            font-weight:
+                750;
+        }
+
+
+        .dashboard-card {
+            background:
+                #ffffff;
+
+            border:
+                1px solid #ded8ce;
+
+            border-radius:
+                14px;
+
+            padding:
+                24px;
+
+            margin-bottom:
+                20px;
+        }
+
+
+        .dashboard-card h3 {
+            margin-bottom:
+                17px;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact-card {
+            max-width:
+                650px;
+
+            background:
+                #ffffff;
+
+            border:
+                1px solid #ded8ce;
+
+            border-radius:
+                16px;
+
+            padding:
+                30px;
+        }
+
+
+        .contact-card p {
+            color:
+                #6f7785;
+
+            line-height:
+                1.7;
+
+            margin-bottom:
+                20px;
+        }
+
+
+        .contact-item {
+            padding:
+                15px 0;
+
+            border-bottom:
+                1px solid #ece7df;
+        }
+
+
+        .contact-item:last-child {
+            border-bottom:
+                none;
+        }
+
+
+        .contact-item strong {
+            display:
+                block;
+
+            margin-bottom:
+                4px;
+        }
+
+
+        .contact-item span {
+            color:
+                #7b8390;
+
+            font-size:
+                14px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            border-top:
+                1px solid #e1dcd4;
+
+            background:
+                #ffffff;
+
+            padding:
+                25px 7%;
+
+            color:
+                #8a909b;
+
+            font-size:
+                12px;
+
+            text-align:
+                center;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding:
+                    0 20px;
+            }
+
+
+            .nav-links {
+                gap:
+                    13px;
+            }
+
+
+            .nav-links button {
+                font-size:
+                    12px;
+            }
+
+
+            .hero {
+                padding-top:
+                    65px;
+            }
+
+
+            .search-actions {
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+            }
+
+
+            .search-hint {
+                text-align:
+                    center;
+            }
+
+
+            .top-three {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .score-grid {
+                grid-template-columns:
+                    repeat(
+                        2,
+                        1fr
+                    );
+            }
+
+
+            .details-header {
+                flex-direction:
+                    column;
+            }
+
+
+            .details-final {
+                text-align:
+                    left;
+            }
+
+
+            .skill-groups {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .list-row {
+                grid-template-columns:
+                    45px
+                    1fr
+                    80px;
+            }
+
+
+            .list-button {
+                display:
+                    none;
+            }
+
+
+            .dashboard-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .nav-links {
+                display:
+                    none;
+            }
+
+
+            .score-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .page-container {
+                padding-left:
+                    16px;
+
+                padding-right:
+                    16px;
+            }
+
+
+            .details-name {
+                font-size:
+                    28px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <div class="logo">
+        Nex<span>ora</span>
+    </div>
+
+
+    <div class="nav-links">
+
+        <button
+            class="active"
+            onclick="showPage('home', this)"
+        >
+            Home
+        </button>
+
+
+        <button
+            onclick="showPage('results', this)"
+        >
+            Results
+        </button>
+
+
+        <button
+            onclick="showPage('dashboard', this)"
+        >
+            Dashboard
+        </button>
+
+
+        <button
+            onclick="showPage('contact', this)"
+        >
+            Contact
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HOME
+========================================================= -->
+
+<section
+    id="home"
+    class="page active"
+>
+
+    <div class="hero">
+
+        <div class="hero-tag">
+            INTELLIGENT CANDIDATE SHORTLISTING
+        </div>
+
+
+        <h1>
+
+            Find the right<br>
+
+            <span>
+                candidate faster.
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Nexora analyzes resumes against your hiring
+            requirements, ranks candidates, and explains
+            exactly why each candidate received their score.
+
+        </p>
+
+
+        <div class="search-card">
+
+
+            <textarea
+                id="jobQuery"
+                placeholder="Describe the job you're hiring for...
+
+Example:
+Python developer with AWS, SQL, REST API and Machine Learning experience."
+            ></textarea>
+
+
+            <div class="search-actions">
+
+                <div class="search-hint">
+
+                    Enter a job description or hiring requirements
+
+                </div>
+
+
+                <button
+                    id="searchButton"
+                    class="primary-button"
+                    onclick="searchCandidates()"
+                >
+
+                    Find Candidates →
+
+                </button>
+
+            </div>
+
+
+            <div class="examples">
+
+                <button
+                    class="example"
+                    onclick="useExample('Python developer with AWS and SQL')"
+                >
+                    Python + AWS + SQL
+                </button>
+
+
+                <button
+                    class="example"
+                    onclick="useExample('React frontend developer with JavaScript and Node.js')"
+                >
+                    React Frontend
+                </button>
+
+
+                <button
+                    class="example"
+                    onclick="useExample('Machine Learning engineer with Python, SQL and TensorFlow')"
+                >
+                    Machine Learning
+                </button>
+
+            </div>
+
+
+            <div class="upload-area">
+
+
+                <input
+                    type="file"
+                    id="resumeInput"
+                    accept=".pdf,application/pdf"
+                    hidden
+                    onchange="uploadResume()"
+                >
+
+
+                <button
+                    id="uploadButton"
+                    class="upload-button"
+                    onclick="document.getElementById('resumeInput').click()"
+                >
+
+                    + Add Resume
+
+                </button>
+
+
+                <span id="uploadStatus">
+
+                    PDF only
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RESULTS
+========================================================= -->
+
+<section
+    id="results"
+    class="page"
+>
+
+    <div class="page-container">
+
+
+        <div class="page-header">
+
+            <h1>
+                Candidate Results
+            </h1>
+
+
+            <p>
+                Candidates ranked according to their match
+                with your hiring requirements.
+            </p>
+
+        </div>
+
+
+        <div id="resultsContent">
+
+            <div class="loading">
+
+                Enter a job description on the Home page
+                to begin.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DETAILS
+========================================================= -->
+
+<section
+    id="details"
+    class="page"
+>
+
+    <div class="page-container">
+
+
+        <button
+            class="back-button"
+            onclick="showPage('results')"
+        >
+
+            ← Back to results
+
+        </button>
+
+
+        <div id="candidateDetails"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DASHBOARD
+========================================================= -->
+
+<section
+    id="dashboard"
+    class="page"
+>
+
+    <div class="page-container">
+
+
+        <div class="page-header">
+
+            <h1>
+                Dashboard
+            </h1>
+
+
+            <p>
+                Overview of your current candidate
+                screening pipeline.
+            </p>
+
+        </div>
+
+
+        <div class="dashboard-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    TOTAL CANDIDATES
+                </div>
+
+
+                <div
+                    class="stat-value"
+                    id="totalCandidates"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    TOP MATCH
+                </div>
+
+
+                <div
+                    class="stat-value"
+                    id="topMatch"
+                >
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    AVERAGE SCORE
+                </div>
+
+
+                <div
+                    class="stat-value"
+                    id="averageScore"
+                >
+                    0%
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <h3>
+                Current Search
+            </h3>
+
+
+            <div
+                id="dashboardQuery"
+                class="detail-content"
+            >
+
+                No search performed yet.
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <h3>
+                Top Candidate
+            </h3>
+
+
+            <div
+                id="dashboardTopCandidate"
+                class="detail-content"
+            >
+
+                No candidate data available.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+    id="contact"
+    class="page"
+>
+
+    <div class="page-container">
+
+
+        <div class="page-header">
+
+            <h1>
+                Contact Us
+            </h1>
+
+
+            <p>
+                Questions about Nexora or the recruitment
+                pipeline?
+            </p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+
+            <p>
+
+                Nexora is an intelligent recruitment screening
+                prototype designed to help recruiters process
+                resumes faster and understand why candidates
+                are ranked.
+
+            </p>
+
+
+            <div class="contact-item">
+
+                <strong>
+                    Product
+                </strong>
+
+                <span>
+                    AI-assisted candidate screening and ranking
+                </span>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>
+                    Support
+                </strong>
+
+                <span>
+                    Contact your Nexora project team
+                </span>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>
+                    Project
+                </strong>
+
+                <span>
+                    Nexora Hackathon Recruitment Intelligence
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    Nexora · Intelligent Recruitment · Hackathon Prototype
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   GLOBAL STATE
+========================================================= */
+
+let backendData = [];
+
+let currentQuery = "";
+
+
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+function showPage(
+    pageId,
+    clickedButton = null
+) {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(
+            page => {
+                page.classList.remove(
+                    "active"
+                );
+            }
+        );
+
+
+    const page =
+        document.getElementById(
+            pageId
+        );
+
+
+    if (page) {
+
+        page.classList.add(
+            "active"
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(
+            ".nav-links button"
+        )
+        .forEach(
+            button => {
+                button.classList.remove(
+                    "active"
+                );
+            }
+        );
+
+
+    if (clickedButton) {
+
+        clickedButton.classList.add(
+            "active"
+        );
+
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================================
+   EXAMPLE SEARCH
+========================================================= */
+
+function useExample(text) {
+
+    document.getElementById(
+        "jobQuery"
+    ).value = text;
+
+}
+
+
+/* =========================================================
+   SEARCH CANDIDATES
+========================================================= */
+
+async function searchCandidates() {
+
+    const queryInput =
+        document.getElementById(
+            "jobQuery"
+        );
+
+
+    const button =
+        document.getElementById(
+            "searchButton"
+        );
+
+
+    const query =
+        queryInput.value.trim();
+
+
+    if (!query) {
+
+        alert(
+            "Please enter a job description or hiring requirement."
+        );
+
+
+        queryInput.focus();
+
+
+        return;
+
+    }
+
+
+    currentQuery =
+        query;
+
+
+    button.disabled =
+        true;
+
+
+    button.innerText =
+        "Analyzing...";
+
+
+    showPage(
+        "results"
+    );
+
+
+    document.getElementById(
+        "resultsContent"
+    ).innerHTML = `
+
+        <div class="loading">
+
+            Analyzing resumes and ranking candidates...
+
+        </div>
+
+    `;
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/candidates?query=" +
+                encodeURIComponent(
+                    query
+                )
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.error ||
+                "Could not fetch candidates."
+            );
+
+        }
+
+
+        backendData =
+            Array.isArray(data)
+                ? data
+                : [];
+
+
+        if (!backendData.length) {
+
+            document.getElementById(
+                "resultsContent"
+            ).innerHTML = `
+
+                <div class="error-box">
+
+                    No candidates were found
+                    for this search.
+
+                </div>
+
+            `;
+
+
+            return;
+
+        }
+
+
+        renderResults();
+
+
+        updateDashboard();
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            error
+        );
+
+
+        document.getElementById(
+            "resultsContent"
+        ).innerHTML = `
+
+            <div class="error-box">
+
+                <strong>
+                    Could not load candidates.
+                </strong>
+
+                <br><br>
+
+                ${escapeHtml(
+                    error.message
+                )}
+
+                <br><br>
+
+                Make sure Flask is running on
+                <strong>
+                    http://127.0.0.1:5001
+                </strong>.
+
+            </div>
+
+        `;
+
+    }
+
+
+    finally {
+
+        button.disabled =
+            false;
+
+
+        button.innerText =
+            "Find Candidates →";
+
+    }
+
+}
+
+
+/* =========================================================
+   SCORE HELPER
+========================================================= */
+
+function getScores(candidate) {
+
+    return candidate.scores || {
+
+        semantic: 0,
+
+        required: 0,
+
+        keyword: 0,
+
+        experience: 0,
+
+        final: 0
+
+    };
+
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+function renderResults() {
+
+    const container =
+        document.getElementById(
+            "resultsContent"
+        );
+
+
+    const topThree =
+        backendData.slice(
+            0,
+            3
+        );
+
+
+    container.innerHTML = `
+
+        <div class="search-summary">
+
+            <div class="search-summary-label">
+
+                Current Hiring Requirement
+
+            </div>
+
+
+            <div class="search-summary-text">
+
+                ${escapeHtml(
+                    currentQuery
+                )}
+
+            </div>
+
+        </div>
+
+
+        <h2 class="section-heading">
+
+            Top 3 Candidates
+
+        </h2>
+
+
+        <div class="top-three">
+
+            ${topThree
+                .map(
+                    candidate =>
+                        renderCandidateCard(
+                            candidate
+                        )
+                )
+                .join("")
+            }
+
+        </div>
+
+
+        <h2 class="section-heading">
+
+            All Candidates
+
+        </h2>
+
+
+        <div class="candidate-list">
+
+            ${backendData
+                .map(
+                    candidate =>
+                        renderCandidateRow(
+                            candidate
+                        )
+                )
+                .join("")
+            }
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   CANDIDATE CARD
+========================================================= */
+
+function renderCandidateCard(
+    candidate
+) {
+
+    const scores =
+        getScores(
+            candidate
+        );
+
+
+    const finalScore =
+        Number(
+            scores.final || 0
+        );
+
+
+    return `
+
+        <div class="candidate-card">
+
+            <div class="candidate-rank">
+
+                Rank #${candidate.rank || "—"}
+
+            </div>
+
+
+            <div class="candidate-name">
+
+                ${escapeHtml(
+                    candidate.name ||
+                    "Unknown Candidate"
+                )}
+
+            </div>
+
+
+            <div class="candidate-email">
+
+                ${escapeHtml(
+                    candidate.email ||
+                    "Email not available"
+                )}
+
+            </div>
+
+
+            <div class="candidate-score">
+
+                ${finalScore.toFixed(2)}%
+
+            </div>
+
+
+            <div class="candidate-score-label">
+
+                Overall Match
+
+            </div>
+
+
+            <div class="mini-score">
+
+                <span>
+                    Semantic
+                </span>
+
+                <strong>
+
+                    ${Number(
+                        scores.semantic || 0
+                    ).toFixed(1)}%
+
+                </strong>
+
+            </div>
+
+
+            <div class="mini-score">
+
+                <span>
+                    Required Skills
+                </span>
+
+                <strong>
+
+                    ${Number(
+                        scores.required || 0
+                    ).toFixed(1)}%
+
+                </strong>
+
+            </div>
+
+
+            <div class="mini-score">
+
+                <span>
+                    Experience
+                </span>
+
+                <strong>
+
+                    ${Number(
+                        scores.experience || 0
+                    ).toFixed(1)}%
+
+                </strong>
+
+            </div>
+
+
+            <button
+                class="view-button"
+                onclick="openCandidateById('${escapeJs(
+                    candidate.id
+                )}')"
+            >
+
+                View Candidate Details
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   CANDIDATE ROW
+========================================================= */
+
+function renderCandidateRow(
+    candidate
+) {
+
+    const scores =
+        getScores(
+            candidate
+        );
+
+
+    return `
+
+        <div class="list-row">
+
+            <div class="list-rank">
+
+                #${candidate.rank || "—"}
+
+            </div>
+
+
+            <div>
+
+                <div class="list-name">
+
+                    ${escapeHtml(
+                        candidate.name ||
+                        "Unknown Candidate"
+                    )}
+
+                </div>
+
+
+                <div class="list-email">
+
+                    ${escapeHtml(
+                        candidate.email ||
+                        "No email"
+                    )}
+
+                </div>
+
+            </div>
+
+
+            <div class="list-score">
+
+                ${Number(
+                    scores.final || 0
+                ).toFixed(2)}%
+
+            </div>
+
+
+            <button
+                class="list-button"
+                onclick="openCandidateById('${escapeJs(
+                    candidate.id
+                )}')"
+            >
+
+                Details
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   OPEN CANDIDATE SAFELY
+========================================================= */
+
+function openCandidateById(
+    id
+) {
+
+    const candidate =
+        backendData.find(
+            item =>
+                String(item.id) ===
+                String(id)
+        );
+
+
+    if (!candidate) {
+
+        alert(
+            "Candidate details could not be found."
+        );
+
+
+        return;
+
+    }
+
+
+    showCandidate(
+        candidate
+    );
+
+}
+
+
+/* =========================================================
+   REQUIRED SKILLS
+========================================================= */
+
+function extractRequiredSkills(
+    query
+) {
+
+    const skillsList = [
+
+        "Python",
+        "Java",
+        "C",
+        "C++",
+        "C#",
+        "JavaScript",
+        "TypeScript",
+        "HTML",
+        "CSS",
+        "React",
+        "Angular",
+        "Vue",
+        "Node.js",
+        "Express",
+        "Django",
+        "Flask",
+        "FastAPI",
+        "Spring",
+        "SQL",
+        "MySQL",
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Docker",
+        "Kubernetes",
+        "Git",
+        "GitHub",
+        "REST API",
+        "GraphQL",
+        "Machine Learning",
+        "Deep Learning",
+        "TensorFlow",
+        "PyTorch",
+        "Pandas",
+        "NumPy",
+        "scikit-learn",
+        "Linux",
+        "Firebase",
+        "Tailwind",
+        "Bootstrap"
+
+    ];
+
+
+    return skillsList.filter(
+        skill =>
+            query
+                .toLowerCase()
+                .includes(
+                    skill.toLowerCase()
+                )
+    );
+
+}
+
+
+/* =========================================================
+   NORMALIZE SKILL
+========================================================= */
+
+function normalizeSkill(
+    skill
+) {
+
+    return String(skill || "")
+        .toLowerCase()
+        .replace(
+            /[\(\)]/g,
+            ""
+        )
+        .replace(
+            "react.js",
+            "react"
+        )
+        .replace(
+            "node.js",
+            "node"
+        )
+        .replace(
+            "nodejs",
+            "node"
+        )
+        .replace(
+            "rest apis",
+            "rest api"
+        )
+        .trim();
+
+}
+
+
+/* =========================================================
+   SKILL MATCHING
+========================================================= */
+
+function getSkillAnalysis(
+    candidate
+) {
+
+    const requiredSkills =
+        extractRequiredSkills(
+            currentQuery
+        );
+
+
+    const candidateSkills =
+        candidate.skills || [];
+
+
+    const candidateNormalized =
+        candidateSkills.map(
+            skill =>
+                normalizeSkill(
+                    skill
+                )
+        );
+
+
+    const matched = [];
+
+    const missing = [];
+
+
+    requiredSkills.forEach(
+        requiredSkill => {
+
+            const normalizedRequired =
+                normalizeSkill(
+                    requiredSkill
+                );
+
+
+            const found =
+                candidateNormalized.some(
+                    candidateSkill => {
+
+                        return (
+                            candidateSkill ===
+                            normalizedRequired
+                        );
+
+                    }
+                );
+
+
+            if (found) {
+
+                matched.push(
+                    requiredSkill
+                );
+
+            }
+
+            else {
+
+                missing.push(
+                    requiredSkill
+                );
+
+            }
+
+        }
+    );
+
+
+    return {
+
+        required:
+            requiredSkills,
+
+        matched:
+            matched,
+
+        missing:
+            missing
+
+    };
+
+}
+
+
+/* =========================================================
+   RANKING EXPLANATION
+========================================================= */
+
+function getRankingExplanation(
+    candidate
+) {
+
+    const scores =
+        getScores(
+            candidate
+        );
+
+
+    const finalScore =
+        Number(
+            scores.final || 0
+        );
+
+
+    const semantic =
+        Number(
+            scores.semantic || 0
+        );
+
+
+    const required =
+        Number(
+            scores.required || 0
+        );
+
+
+    const experience =
+        Number(
+            scores.experience || 0
+        );
+
+
+    const analysis =
+        getSkillAnalysis(
+            candidate
+        );
+
+
+    const matchedCount =
+        analysis.matched.length;
+
+
+    const requiredCount =
+        analysis.required.length;
+
+
+    if (
+        requiredCount > 0 &&
+        matchedCount === requiredCount &&
+        experience > 0
+    ) {
+
+        return `
+            This candidate ranked highly because they match
+            all detected required skills and also have
+            relevant experience.
+        `;
+
+    }
+
+
+    if (
+        requiredCount > 0 &&
+        matchedCount === requiredCount
+    ) {
+
+        return `
+            This candidate ranked highly because they match
+            all of the technical skills detected from the
+            job requirements.
+        `;
+
+    }
+
+
+    if (semantic >= 70) {
+
+        return `
+            This candidate ranked highly because the content
+            of their resume strongly aligns with the job
+            description.
+        `;
+
+    }
+
+
+    if (experience >= 60) {
+
+        return `
+            This candidate ranked highly because they have
+            strong relevant experience in addition to their
+            technical match.
+        `;
+
+    }
+
+
+    if (finalScore >= 50) {
+
+        return `
+            This candidate achieved a strong overall score
+            across the evaluated criteria.
+        `;
+
+    }
+
+
+    return `
+        This candidate has relevant skills and resume content,
+        but there are still areas where the profile does not
+        fully match the job requirements.
+    `;
+
+}
+
+
+/* =========================================================
+   EXPLANATION POINTS
+========================================================= */
+
+function getExplanationPoints(
+    candidate
+) {
+
+    const scores =
+        getScores(
+            candidate
+        );
+
+
+    const semantic =
+        Number(
+            scores.semantic || 0
+        );
+
+
+    const required =
+        Number(
+            scores.required || 0
+        );
+
+
+    const keyword =
+        Number(
+            scores.keyword || 0
+        );
+
+
+    const experience =
+        Number(
+            scores.experience || 0
+        );
+
+
+    const analysis =
+        getSkillAnalysis(
+            candidate
+        );
+
+
+    const points = [];
+
+
+    if (
+        analysis.required.length > 0
+    ) {
+
+        if (
+            analysis.matched.length ===
+            analysis.required.length
+        ) {
+
+            points.push({
+
+                type:
+                    "good",
+
+                text:
+                    `✓ Matches all ${analysis.required.length} detected required skills`
+
+            });
+
+        }
+
+        else {
+
+            points.push({
+
+                type:
+                    "warning",
+
+                text:
+                    `⚠ Matches ${analysis.matched.length} of ${analysis.required.length} detected required skills`
+
+            });
+
+        }
+
+    }
+
+    else {
+
+        points.push({
+
+            type:
+                "good",
+
+            text:
+                "✓ No specific technical skills were explicitly detected from the search"
+
+        });
+
+    }
+
+
+    if (
+        semantic >= 70
+    ) {
+
+        points.push({
+
+            type:
+                "good",
+
+            text:
+                "✓ Strong alignment with the job description"
+
+        });
+
+    }
+
+    else if (
+        semantic >= 50
+    ) {
+
+        points.push({
+
+            type:
+                "good",
+
+            text:
+                "✓ Moderate alignment with the job description"
+
+        });
+
+    }
+
+    else {
+
+        points.push({
+
+            type:
+                "warning",
+
+            text:
+                "⚠ Limited alignment with the job description"
+
+        });
+
+    }
+
+
+    if (
+        keyword >= 70
+    ) {
+
+        points.push({
+
+            type:
+                "good",
+
+            text:
+                "✓ Strong technical keyword overlap"
+
+        });
+
+    }
+
+    else if (
+        keyword >= 40
+    ) {
+
+        points.push({
+
+            type:
+                "good",
+
+            text:
+                "✓ Some relevant technical keywords detected"
+
+        });
+
+    }
+
+    else {
+
+        points.push({
+
+            type:
+                "warning",
+
+            text:
+                "⚠ Limited keyword overlap"
+
+        });
+
+    }
+
+
+    if (
+        experience >= 60
+    ) {
+
+        points.push({
+
+            type:
+                "good",
+
+            text:
+                "✓ Strong relevant experience detected"
+
+        });
+
+    }
+
+    else if (
+        experience > 0
+    ) {
+
+        points.push({
+
+            type:
+                "good",
+
+            text:
+                "✓ Some relevant experience detected"
+
+        });
+
+    }
+
+    else {
+
+        points.push({
+
+            type:
+                "warning",
+
+            text:
+                "⚠ No formal experience detected"
+
+        });
+
+    }
+
+
+    return points
+        .map(
+            point => `
+
+                <div class="explanation-point ${point.type}">
+
+                    ${point.text}
+
+                </div>
+
+            `
+        )
+        .join("");
+
+}
+
+
+/* =========================================================
+   WHY HIGHER
+========================================================= */
+
+function getWhyHigher(
+    candidate
+) {
+
+    const index =
+        backendData.findIndex(
+            item =>
+                String(item.id) ===
+                String(candidate.id)
+        );
+
+
+    if (
+        index === -1
+    ) {
+
+        return "";
+
+    }
+
+
+    if (
+        index === 0
+    ) {
+
+        return `
+
+            <div class="why-higher">
+
+                <h4>
+                    Why this candidate is ranked #1
+                </h4>
+
+                <p>
+
+                    This candidate has the highest overall
+                    match score among the candidates evaluated
+                    for this job.
+
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+
+    const previous =
+        backendData[
+            index - 1
+        ];
+
+
+    const currentScores =
+        getScores(
+            candidate
+        );
+
+
+    const previousScores =
+        getScores(
+            previous
+        );
+
+
+    const currentFinal =
+        Number(
+            currentScores.final || 0
+        );
+
+
+    const previousFinal =
+        Number(
+            previousScores.final || 0
+        );
+
+
+    const difference =
+        currentFinal -
+        previousFinal;
+
+
+    if (
+        difference > 0
+    ) {
+
+        return `
+
+            <div class="why-higher">
+
+                <h4>
+
+                    Why this candidate is ranked above
+                    ${escapeHtml(
+                        previous.name ||
+                        "the previous candidate"
+                    )}
+
+                </h4>
+
+
+                <p>
+
+                    ${escapeHtml(
+                        candidate.name ||
+                        "This candidate"
+                    )}
+
+                    has a ${difference.toFixed(2)}
+                    point higher overall match score
+                    (${currentFinal.toFixed(2)}%
+                    vs
+                    ${previousFinal.toFixed(2)}%).
+
+                    The difference comes from the combined
+                    ranking factors shown above.
+
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+
+    return `
+
+        <div class="why-higher">
+
+            <h4>
+                Ranking comparison
+            </h4>
+
+            <p>
+
+                This candidate and the previous candidate
+                have very similar overall scores. Nexora
+                ranks this candidate slightly higher based
+                on the evaluated scoring factors.
+
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   CANDIDATE DETAILS
+========================================================= */
+
+function showCandidate(
+    candidate
+) {
+
+    const container =
+        document.getElementById(
+            "candidateDetails"
+        );
+
+
+    const scores =
+        getScores(
+            candidate
+        );
+
+
+    const sections =
+        candidate.sections ||
+        {};
+
+
+    const skills =
+        candidate.skills ||
+        [];
+
+
+    const analysis =
+        getSkillAnalysis(
+            candidate
+        );
+
+
+    const matchedSet =
+        new Set(
+            analysis.matched.map(
+                skill =>
+                    normalizeSkill(
+                        skill
+                    )
+            )
+        );
+
+
+    const skillHTML =
+        skills.length
+
+        ?
+
+        skills
+            .map(
+                skill => {
+
+                    const isMatched =
+                        matchedSet.has(
+                            normalizeSkill(
+                                skill
+                            )
+                        );
+
+
+                    return `
+
+                        <span class="skill ${
+                            isMatched
+                                ? "match"
+                                : ""
+                        }">
+
+                            ${escapeHtml(
+                                skill
+                            )}
+
+                            ${
+                                isMatched
+                                    ? " ✓"
+                                    : ""
+                            }
+
+                        </span>
+
+                    `;
+
+                }
+            )
+            .join("")
+
+        :
+
+        `
+
+            <span class="detail-content empty">
+
+                No skills detected.
+
+            </span>
+
+        `;
+
+
+    const matchedSkillsHTML =
+        analysis.matched.length
+
+        ?
+
+        analysis.matched
+            .map(
+                skill => `
+
+                    <span class="skill match">
+
+                        ✓ ${escapeHtml(
+                            skill
+                        )}
+
+                    </span>
+
+                `
+            )
+            .join("")
+
+        :
+
+        `
+
+            <span class="detail-content empty">
+
+                No direct required-skill matches detected.
+
+            </span>
+
+        `;
+
+
+    const missingSkillsHTML =
+        analysis.missing.length
+
+        ?
+
+        analysis.missing
+            .map(
+                skill => `
+
+                    <span class="skill missing">
+
+                        ${escapeHtml(
+                            skill
+                        )}
+
+                    </span>
+
+                `
+            )
+            .join("")
+
+        :
+
+        `
+
+            <span class="detail-content empty">
+
+                No missing required skills detected.
+
+            </span>
+
+        `;
+
+
+    container.innerHTML = `
+
+        <!-- ================================================
+             HEADER
+        ================================================= -->
+
+        <div class="details-header">
+
+
+            <div>
+
+
+                <div class="details-rank">
+
+                    RANK #${candidate.rank || "—"}
+
+                </div>
+
+
+                <h1 class="details-name">
+
+                    ${escapeHtml(
+                        candidate.name ||
+                        "Unknown Candidate"
+                    )}
+
+                </h1>
+
+
+                <div class="details-contact">
+
+                    ${
+                        candidate.email
+
+                        ?
+
+                        `📧 ${escapeHtml(
+                            candidate.email
+                        )}<br>`
+
+                        :
+
+                        ""
+                    }
+
+
+                    ${
+                        candidate.phone
+
+                        ?
+
+                        `📞 ${escapeHtml(
+                            candidate.phone
+                        )}`
+
+                        :
+
+                        ""
+                    }
+
+                </div>
+
+
+            </div>
+
+
+            <div class="details-final">
+
+
+                <div class="score-label">
+
+                    FINAL MATCH
+
+                </div>
+
+
+                <div class="details-final-number">
+
+                    ${Number(
+                        scores.final || 0
+                    ).toFixed(2)}%
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================================================
+             SCORE GRID
+        ================================================= -->
+
+        <div class="score-grid">
+
+
+            <div class="score-box">
+
+                <div class="score-box-title">
+
+                    Semantic Match
+
+                </div>
+
+
+                <div class="score-box-value">
+
+                    ${Number(
+                        scores.semantic || 0
+                    ).toFixed(2)}%
+
+                </div>
+
+            </div>
+
+
+            <div class="score-box">
+
+                <div class="score-box-title">
+
+                    Required Skills
+
+                </div>
+
+
+                <div class="score-box-value">
+
+                    ${Number(
+                        scores.required || 0
+                    ).toFixed(2)}%
+
+                </div>
+
+            </div>
+
+
+            <div class="score-box">
+
+                <div class="score-box-title">
+
+                    Keyword Match
+
+                </div>
+
+
+                <div class="score-box-value">
+
+                    ${Number(
+                        scores.keyword || 0
+                    ).toFixed(2)}%
+
+                </div>
+
+            </div>
+
+
+            <div class="score-box">
+
+                <div class="score-box-title">
+
+                    Experience
+
+                </div>
+
+
+                <div class="score-box-value">
+
+                    ${Number(
+                        scores.experience || 0
+                    ).toFixed(2)}%
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================================================
+             WHY RANKED
+        ================================================= -->
+
+        <div class="detail-section">
+
+
+            <h3>
+
+                Why This Candidate Ranked
+                #${candidate.rank || "?"}
+
+            </h3>
+
+
+            <div class="explanation-box">
+
+
+                <div class="explanation-main">
+
+                    ${getRankingExplanation(
+                        candidate
+                    )}
+
+                </div>
+
+
+                <div class="explanation-points">
+
+                    ${getExplanationPoints(
+                        candidate
+                    )}
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================================================
+             WHY ABOVE OTHER CANDIDATES
+        ================================================= -->
+
+        <div class="detail-section">
+
+            ${getWhyHigher(
+                candidate
+            )}
+
+        </div>
+
+
+        <!-- ================================================
+             REQUIRED SKILL ANALYSIS
+        ================================================= -->
+
+        <div class="detail-section">
+
+
+            <h3>
+
+                Required Skill Analysis
+
+            </h3>
+
+
+            <div class="skill-groups">
+
+
+                <div class="skill-group">
+
+
+                    <div class="skill-group-title">
+
+                        Matched Skills
+
+                    </div>
+
+
+                    <div class="skills">
+
+                        ${matchedSkillsHTML}
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="skill-group">
+
+
+                    <div class="skill-group-title">
+
+                        Missing Skills
+
+                    </div>
+
+
+                    <div class="skills">
+
+                        ${missingSkillsHTML}
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================================================
+             ALL SKILLS
+        ================================================= -->
+
+        <div class="detail-section">
+
+
+            <h3>
+
+                Candidate Skills
+
+            </h3>
+
+
+            <div class="skills">
+
+                ${skillHTML}
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================================================
+             SUMMARY
+        ================================================= -->
+
+        <div class="detail-section">
+
+
+            <h3>
+
+                Summary
+
+            </h3>
+
+
+            <div
+                class="detail-content ${
+                    sections.summary
+                        ? ""
+                        : "empty"
+                }"
+            >
+
+                ${escapeHtml(
+                    sections.summary ||
+                    "No summary detected."
+                )}
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================================================
+             EXPERIENCE
+        ================================================= -->
+
+        <div class="detail-section">
+
+
+            <h3>
+
+                Experience
+
+            </h3>
+
+
+            <div
+                class="detail-content ${
+                    sections.experience
+                        ? ""
+                        : "empty"
+                }"
+            >
+
+                ${escapeHtml(
+                    sections.experience ||
+                    "No formal experience detected."
+                )}
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================================================
+             PROJECTS
+        ================================================= -->
+
+        <div class="detail-section">
+
+
+            <h3>
+
+                Projects
+
+            </h3>
+
+
+            <div
+                class="detail-content ${
+                    sections.projects
+                        ? ""
+                        : "empty"
+                }"
+            >
+
+                ${escapeHtml(
+                    sections.projects ||
+                    "No projects detected."
+                )}
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================================================
+             EDUCATION
+        ================================================= -->
+
+        <div class="detail-section">
+
+
+            <h3>
+
+                Education
+
+            </h3>
+
+
+            <div
+                class="detail-content ${
+                    sections.education
+                        ? ""
+                        : "empty"
+                }"
+            >
+
+                ${escapeHtml(
+                    sections.education ||
+                    "No education information detected."
+                )}
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================================================
+             CERTIFICATIONS
+        ================================================= -->
+
+        <div class="detail-section">
+
+
+            <h3>
+
+                Certifications
+
+            </h3>
+
+
+            <div
+                class="detail-content ${
+                    sections.certifications
+                        ? ""
+                        : "empty"
+                }"
+            >
+
+                ${escapeHtml(
+                    sections.certifications ||
+                    "No certifications detected."
+                )}
+
+            </div>
+
+
+        </div>
+
+    `;
+
+
+    showPage(
+        "details"
+    );
+
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+function updateDashboard() {
+
+    const total =
+        backendData.length;
+
+
+    document.getElementById(
+        "totalCandidates"
+    ).innerText =
+        total;
+
+
+    if (
+        !total
+    ) {
+
+        document.getElementById(
+            "topMatch"
+        ).innerText =
+            "—";
+
+
+        document.getElementById(
+            "averageScore"
+        ).innerText =
+            "0%";
+
+
+        document.getElementById(
+            "dashboardQuery"
+        ).innerText =
+            "No search performed yet.";
+
+
+        document.getElementById(
+            "dashboardTopCandidate"
+        ).innerText =
+            "No candidate data available.";
+
+
+        return;
+
+    }
+
+
+    const scores =
+        backendData.map(
+            candidate =>
+                Number(
+                    getScores(
+                        candidate
+                    ).final || 0
+                )
+        );
+
+
+    const average =
+        scores.reduce(
+            (
+                sum,
+                score
+            ) =>
+                sum + score,
+            0
+        ) /
+        scores.length;
+
+
+    const top =
+        backendData[0];
+
+
+    document.getElementById(
+        "topMatch"
+    ).innerText =
+        `${Number(
+            getScores(
+                top
+            ).final || 0
+        ).toFixed(2)}%`;
+
+
+    document.getElementById(
+        "averageScore"
+    ).innerText =
+        `${average.toFixed(2)}%`;
+
+
+    document.getElementById(
+        "dashboardQuery"
+    ).innerText =
+        currentQuery ||
+        "No search performed yet.";
+
+
+    document.getElementById(
+        "dashboardTopCandidate"
+    ).innerText =
+
+        top
+
+        ?
+
+        `${top.name || "Unknown Candidate"} · ${Number(
+            getScores(
+                top
+            ).final || 0
+        ).toFixed(2)}%`
+
+        :
+
+        "No candidate data available.";
+
+}
+
+
+/* =========================================================
+   RESUME UPLOAD
+========================================================= */
+
+async function uploadResume() {
+
+    const input =
+        document.getElementById(
+            "resumeInput"
+        );
+
+
+    const status =
+        document.getElementById(
+            "uploadStatus"
+        );
+
+
+    const button =
+        document.getElementById(
+            "uploadButton"
+        );
+
+
+    const file =
+        input.files[0];
+
+
+    if (
+        !file
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        !file.name
+            .toLowerCase()
+            .endsWith(
+                ".pdf"
+            )
+    ) {
+
+        alert(
+            "Please select a PDF resume."
+        );
+
+
+        input.value =
+            "";
+
+
+        return;
+
+    }
+
+
+    status.innerText =
+        "Uploading...";
+
+
+    button.disabled =
+        true;
+
+
+    const formData =
+        new FormData();
+
+
+    formData.append(
+        "resume",
+        file
+    );
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/upload-resume",
+                {
+                    method:
+                        "POST",
+
+                    body:
+                        formData
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !response.ok
+        ) {
+
+            throw new Error(
+                data.error ||
+                "Upload failed."
+            );
+
+        }
+
+
+        status.innerText =
+            `${data.resume.name || file.name} added ✓`;
+
+
+        alert(
+            "Resume uploaded successfully!\n\n" +
+            "Candidate: " +
+            (
+                data.resume.name ||
+                "Unknown"
+            ) +
+            "\n" +
+            "Total candidates: " +
+            data.total_candidates
+        );
+
+
+        input.value =
+            "";
+
+
+        /*
+         * If a job search is already active,
+         * rerun the search so the newly uploaded
+         * candidate immediately appears.
+         */
+
+        if (
+            currentQuery
+        ) {
+
+            await searchCandidates();
+
+        }
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "Resume upload error:",
+            error
+        );
+
+
+        status.innerText =
+            "Upload failed";
+
+
+        alert(
+            "Could not upload resume.\n\n" +
+            error.message
+        );
+
+    }
+
+
+    finally {
+
+        button.disabled =
+            false;
+
+    }
+
+}
+
+
+/* =========================================================
+   HTML ESCAPING
+========================================================= */
+
+function escapeHtml(
+    value
+) {
+
+    return String(
+        value ?? ""
+    )
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   JAVASCRIPT STRING ESCAPING
+========================================================= */
+
+function escapeJs(
+    value
+) {
+
+    return String(
+        value ?? ""
+    )
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+        .replace(
+            /'/g,
+            "\\'"
+        )
+        .replace(
+            /\r/g,
+            "\\r"
+        )
+        .replace(
+            /\n/g,
+            "\\n"
+        );
+
+}
+
+
+/* =========================================================
+   KEYBOARD SHORTCUT
+========================================================= */
+
+document
+    .getElementById(
+        "jobQuery"
+    )
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter" &&
+                (
+                    event.metaKey ||
+                    event.ctrlKey
+                )
+            ) {
+
+                searchCandidates();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updateDashboard();
+
+</script>
+
+</body>
+</html>
