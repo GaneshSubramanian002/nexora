@@ -1,0 +1,2496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Nexora | Intelligent Hiring</title>
+
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: #f6f4ef;
+
+            color: #172033;
+
+            min-height: 100vh;
+        }
+
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+
+            height: 72px;
+
+            background: #ffffff;
+
+            border-bottom:
+                1px solid #e6e2d9;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 7%;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+        }
+
+
+        .logo {
+
+            font-size: 22px;
+
+            font-weight: 800;
+
+            letter-spacing: -0.5px;
+
+            margin-right: auto;
+        }
+
+
+        .logo span {
+
+            color: #536d8d;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 32px;
+
+            color: #687184;
+
+            font-size: 14px;
+        }
+
+
+        .nav-links a {
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        .nav-links a:hover {
+
+            color: #172033;
+        }
+
+
+        .nav-login {
+
+            margin-left: 25px;
+
+            border: 1px solid #cdd2da;
+
+            padding: 9px 19px;
+
+            border-radius: 7px;
+
+            background: white;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           PAGE SYSTEM
+        ===================================================== */
+
+        .page {
+
+            display: none;
+
+            min-height: calc(100vh - 72px);
+        }
+
+
+        .page.active {
+
+            display: block;
+        }
+
+
+        /* =====================================================
+           HOME
+        ===================================================== */
+
+        .home {
+
+            padding: 75px 8% 80px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #f8f7f3 0%,
+                    #f2f1ec 100%
+                );
+        }
+
+
+        .eyebrow {
+
+            color: #668c78;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.8px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+
+        .home h1 {
+
+            font-size: clamp(42px, 6vw, 70px);
+
+            line-height: 1.05;
+
+            letter-spacing: -3px;
+
+            margin: 0 auto;
+
+            max-width: 900px;
+
+            color: #172033;
+        }
+
+
+        .home h1 span {
+
+            color: #536d8d;
+        }
+
+
+        .home-subtitle {
+
+            max-width: 650px;
+
+            margin: 22px auto 35px;
+
+            color: #697285;
+
+            line-height: 1.7;
+
+            font-size: 16px;
+        }
+
+
+        /* =====================================================
+           SEARCH
+        ===================================================== */
+
+        .search-container {
+
+            max-width: 760px;
+
+            margin: auto;
+
+            background: white;
+
+            border: 1px solid #ddd9d0;
+
+            border-radius: 14px;
+
+            padding: 8px;
+
+            display: flex;
+
+            box-shadow:
+                0 15px 40px rgba(38, 47, 61, 0.08);
+        }
+
+
+        .search-container input {
+
+            flex: 1;
+
+            border: 0;
+
+            outline: 0;
+
+            padding: 16px;
+
+            font-size: 14px;
+
+            color: #172033;
+
+            background: transparent;
+        }
+
+
+        .search-container input::placeholder {
+
+            color: #9aa1ad;
+        }
+
+
+        .search-btn {
+
+            border: 0;
+
+            background: #536d8d;
+
+            color: white;
+
+            border-radius: 9px;
+
+            padding: 0 25px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        .search-btn:hover {
+
+            background: #405873;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           INTERACTIVE MESSAGE
+        ===================================================== */
+
+        .message-box {
+
+            margin: 20px auto 0;
+
+            min-height: 22px;
+
+            color: #668c78;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+
+        /* =====================================================
+           HOME FEATURES
+        ===================================================== */
+
+        .features {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            max-width: 900px;
+
+            margin: 65px auto 0;
+        }
+
+
+        .feature {
+
+            background: white;
+
+            border:
+                1px solid #e3dfd6;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            text-align: left;
+        }
+
+
+        .feature-number {
+
+            font-size: 12px;
+
+            color: #668c78;
+
+            font-weight: 800;
+
+            margin-bottom: 15px;
+        }
+
+
+        .feature h3 {
+
+            font-size: 16px;
+
+            margin: 0 0 8px;
+        }
+
+
+        .feature p {
+
+            color: #7a8291;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           HOW IT WORKS
+        ===================================================== */
+
+        .how {
+
+            padding: 70px 8%;
+
+            background: white;
+
+            text-align: center;
+        }
+
+
+        .section-title {
+
+            font-size: 28px;
+
+            margin: 0 0 10px;
+        }
+
+
+        .section-subtitle {
+
+            color: #788193;
+
+            margin-bottom: 40px;
+        }
+
+
+        .steps {
+
+            max-width: 950px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+        }
+
+
+        .step {
+
+            padding: 20px;
+        }
+
+
+        .step-number {
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 50%;
+
+            background: #edf1f4;
+
+            color: #536d8d;
+
+            display: grid;
+
+            place-items: center;
+
+            margin: auto auto 15px;
+
+            font-weight: 800;
+        }
+
+
+        .step h3 {
+
+            margin: 0 0 8px;
+        }
+
+
+        .step p {
+
+            color: #7b8494;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           RESULTS
+        ===================================================== */
+
+        .results-page {
+
+            padding: 45px 7% 70px;
+
+            background: #f6f4ef;
+        }
+
+
+        .results-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: end;
+
+            margin-bottom: 30px;
+        }
+
+
+        .results-header h1 {
+
+            margin: 0 0 7px;
+
+            font-size: 29px;
+        }
+
+
+        .results-header p {
+
+            margin: 0;
+
+            color: #7a8393;
+        }
+
+
+        .new-search {
+
+            border: 1px solid #cfd4dc;
+
+            background: white;
+
+            padding: 10px 16px;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           TOP 3
+        ===================================================== */
+
+        .top-three {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .candidate-card {
+
+            background: white;
+
+            border:
+                1px solid #dfddd7;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            position: relative;
+
+            transition: 0.2s;
+        }
+
+
+        .candidate-card:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(30, 40, 55, 0.08);
+        }
+
+
+        .candidate-card.first {
+
+            border:
+                1.5px solid #668c78;
+        }
+
+
+        .rank {
+
+            position: absolute;
+
+            top: 15px;
+
+            right: 15px;
+
+            background: #eef2ef;
+
+            color: #668c78;
+
+            padding: 5px 9px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+        }
+
+
+        .candidate-name {
+
+            font-size: 17px;
+
+            font-weight: 750;
+
+            margin-bottom: 5px;
+        }
+
+
+        .candidate-role {
+
+            color: #7b8492;
+
+            font-size: 12px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .score {
+
+            font-size: 34px;
+
+            font-weight: 800;
+
+            color: #536d8d;
+
+            margin-bottom: 15px;
+        }
+
+
+        .score-label {
+
+            font-size: 10px;
+
+            color: #969dab;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+        }
+
+
+        .metrics {
+
+            border-top:
+                1px solid #ece9e3;
+
+            padding-top: 13px;
+        }
+
+
+        .metric {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin: 7px 0;
+
+            font-size: 11px;
+
+            color: #777f8e;
+        }
+
+
+        .metric strong {
+
+            color: #283247;
+        }
+
+
+        .skill-list {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 6px;
+
+            margin-top: 14px;
+        }
+
+
+        .skill {
+
+            padding: 5px 8px;
+
+            border-radius: 5px;
+
+            background: #f0f2f3;
+
+            color: #566174;
+
+            font-size: 10px;
+        }
+
+
+        /* =====================================================
+           ALL CANDIDATES
+        ===================================================== */
+
+        .all-candidates {
+
+            background: white;
+
+            border:
+                1px solid #dfddd7;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+        }
+
+
+        .table-title {
+
+            padding: 18px 20px;
+
+            border-bottom:
+                1px solid #ebe8e1;
+
+            font-weight: 750;
+        }
+
+
+        .candidate-row {
+
+            display: grid;
+
+            grid-template-columns:
+                50px 1.5fr
+                120px 120px
+                120px;
+
+            align-items: center;
+
+            padding: 15px 20px;
+
+            border-bottom:
+                1px solid #eeeae3;
+
+            font-size: 12px;
+        }
+
+
+        .candidate-row:last-child {
+
+            border-bottom: 0;
+        }
+
+
+        .candidate-row.header {
+
+            color: #9198a5;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            background: #faf9f6;
+        }
+
+
+        .row-score {
+
+            color: #536d8d;
+
+            font-weight: 800;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           DASHBOARD
+        ===================================================== */
+
+        .dashboard {
+
+            padding: 45px 7% 70px;
+
+            background: #f6f4ef;
+        }
+
+
+        .dashboard h1 {
+
+            margin-top: 0;
+
+            font-size: 29px;
+        }
+
+
+        .stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            margin: 25px 0;
+        }
+
+
+        .stat {
+
+            background: white;
+
+            border:
+                1px solid #dfddd7;
+
+            border-radius: 11px;
+
+            padding: 20px;
+        }
+
+
+        .stat small {
+
+            color: #858d9b;
+        }
+
+
+        .stat strong {
+
+            display: block;
+
+            font-size: 30px;
+
+            margin-top: 8px;
+
+            color: #536d8d;
+        }
+
+
+        .analytics {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 15px;
+        }
+
+
+        .analytics-card {
+
+            background: white;
+
+            border:
+                1px solid #dfddd7;
+
+            border-radius: 11px;
+
+            padding: 22px;
+
+        }
+
+
+        .analytics-card h3 {
+
+            margin-top: 0;
+        }
+
+
+        .bar {
+
+            margin: 15px 0;
+        }
+
+
+        .bar-label {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 11px;
+
+            color: #737c8d;
+
+            margin-bottom: 5px;
+        }
+
+
+        .bar-track {
+
+            height: 7px;
+
+            background: #e9e8e4;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+
+        .bar-fill {
+
+            height: 100%;
+
+            background: #668c78;
+
+            border-radius: 10px;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact {
+
+            padding: 70px 8%;
+
+            background: #f6f4ef;
+
+            text-align: center;
+        }
+
+
+        .contact-box {
+
+            max-width: 650px;
+
+            margin: 35px auto;
+
+            background: white;
+
+            border:
+                1px solid #dfddd7;
+
+            border-radius: 14px;
+
+            padding: 35px;
+
+            text-align: left;
+        }
+
+
+        .contact-box label {
+
+            display: block;
+
+            font-size: 12px;
+
+            color: #6f7888;
+
+            margin-bottom: 6px;
+
+            margin-top: 15px;
+        }
+
+
+        .contact-box input,
+        .contact-box textarea {
+
+            width: 100%;
+
+            border:
+                1px solid #dcd9d2;
+
+            border-radius: 7px;
+
+            padding: 11px;
+
+            outline: 0;
+
+            background: #fbfaf8;
+        }
+
+
+        .contact-box textarea {
+
+            min-height: 110px;
+
+            resize: vertical;
+        }
+
+
+        .send {
+
+            margin-top: 18px;
+
+            background: #536d8d;
+
+            color: white;
+
+            border: 0;
+
+            border-radius: 7px;
+
+            padding: 11px 22px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            padding: 25px 8%;
+
+            background: #172033;
+
+            color: #c7ced9;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 900px) {
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a:nth-child(2),
+            .nav-links a:nth-child(3) {
+                display: none;
+            }
+
+            .home {
+                padding: 55px 20px;
+            }
+
+            .features,
+            .steps,
+            .top-three,
+            .stats,
+            .analytics {
+                grid-template-columns: 1fr;
+            }
+
+            .search-container {
+                flex-direction: column;
+            }
+
+            .search-btn {
+                padding: 13px;
+            }
+
+            .candidate-row {
+                grid-template-columns:
+                    35px 1fr 80px;
+            }
+
+            .candidate-row div:nth-child(4),
+            .candidate-row div:nth-child(5) {
+                display: none;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navbar">
+
+    <div
+        class="logo"
+        onclick="showPage('home')"
+        style="cursor:pointer"
+    >
+
+        NEX<span>ORA</span>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a
+            onclick="showPage('home')"
+        >
+            Home
+        </a>
+
+
+        <a
+            onclick="showPage('dashboard')"
+        >
+            Dashboard
+        </a>
+
+
+        <a
+            onclick="showPage('results')"
+        >
+            Candidates
+        </a>
+
+
+        <a
+            onclick="showPage('contact')"
+        >
+            Contact Us
+        </a>
+
+
+        <button class="nav-login">
+            Login
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HOME PAGE
+===================================================== -->
+
+<section
+    id="home"
+    class="page active"
+>
+
+
+    <div class="home">
+
+
+        <div class="eyebrow">
+
+            Intelligent Hiring Platform
+
+        </div>
+
+
+        <h1>
+
+            Hire smarter.
+
+            <span>
+                Find the right people faster.
+            </span>
+
+        </h1>
+
+
+        <p class="home-subtitle">
+
+            Nexora helps recruiters discover,
+            understand and shortlist the strongest
+            candidates using intelligent resume analysis.
+
+        </p>
+
+
+
+        <!-- SEARCH -->
+
+        <div class="search-container">
+
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="What role are you hiring for? e.g. Senior Software Engineer"
+                oninput="changeMessage()"
+            >
+
+
+            <button
+                class="search-btn"
+                onclick="searchCandidates()"
+            >
+
+                Find Matches
+
+            </button>
+
+        </div>
+
+
+
+        <!-- INTERACTIVE MESSAGE -->
+
+        <div
+            id="message"
+            class="message-box"
+        >
+
+            Start with a role.
+            We'll help you find the shortlist.
+
+        </div>
+
+
+
+        <!-- FEATURES -->
+
+        <div class="features">
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    01
+                </div>
+
+                <h3>
+                    Search with intent
+                </h3>
+
+                <p>
+                    Tell Nexora what kind of person
+                    you're looking for and let the
+                    system narrow the field.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    02
+                </div>
+
+                <h3>
+                    Understand the match
+                </h3>
+
+                <p>
+                    See semantic relevance,
+                    required skills, keywords
+                    and experience scores.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    03
+                </div>
+
+                <h3>
+                    Shortlist with confidence
+                </h3>
+
+                <p>
+                    Compare candidates and focus
+                    your time on the people who
+                    fit the role best.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- HOW IT WORKS -->
+
+    <div class="how">
+
+
+        <h2 class="section-title">
+
+            From search to shortlist.
+
+        </h2>
+
+
+        <p class="section-subtitle">
+
+            Three simple steps to make hiring clearer.
+
+        </p>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    1
+                </div>
+
+                <h3>
+                    Describe the role
+                </h3>
+
+                <p>
+                    Enter the position you are
+                    hiring for or provide your
+                    job description.
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <h3>
+                    Analyse candidates
+                </h3>
+
+                <p>
+                    Nexora evaluates resumes
+                    against the requirements
+                    and relevant experience.
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <h3>
+                    Make a decision
+                </h3>
+
+                <p>
+                    Review the strongest matches
+                    and understand why they
+                    ranked where they did.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     RESULTS PAGE
+===================================================== -->
+
+<section
+    id="results"
+    class="page"
+>
+
+
+    <div class="results-page">
+
+
+        <div class="results-header">
+
+
+            <div>
+
+                <h1>
+                    Candidate Results
+                </h1>
+
+                <p>
+
+                    Results for:
+
+                    <strong id="searchedRole">
+                        Software Engineer
+                    </strong>
+
+                </p>
+
+            </div>
+
+
+            <button
+                class="new-search"
+                onclick="showPage('home')"
+            >
+
+                ← New Search
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- TOP THREE -->
+
+        <h2
+            style="
+                font-size:19px;
+                margin-bottom:15px;
+            "
+        >
+
+            Top 3 Candidates
+
+        </h2>
+
+
+        <div
+            id="topCandidates"
+            class="top-three"
+        >
+        </div>
+
+
+
+        <!-- ALL CANDIDATES -->
+
+        <div class="all-candidates">
+
+
+            <div class="table-title">
+
+                All Ranked Candidates
+
+            </div>
+
+
+            <div class="candidate-row header">
+
+                <div>
+                    Rank
+                </div>
+
+                <div>
+                    Candidate
+                </div>
+
+                <div>
+                    Final Score
+                </div>
+
+                <div>
+                    Required
+                </div>
+
+                <div>
+                    Experience
+                </div>
+
+            </div>
+
+
+            <div id="candidateTable">
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DASHBOARD PAGE
+===================================================== -->
+
+<section
+    id="dashboard"
+    class="page"
+>
+
+
+    <div class="dashboard">
+
+
+        <h1>
+            Hiring Dashboard
+        </h1>
+
+
+        <p style="color:#788193">
+
+            A quick overview of your candidate pipeline.
+
+        </p>
+
+
+
+        <div class="stats">
+
+
+            <div class="stat">
+
+                <small>
+                    Candidates Analysed
+                </small>
+
+                <strong id="statCandidates">
+                    39
+                </strong>
+
+            </div>
+
+
+
+            <div class="stat">
+
+                <small>
+                    Highest Match
+                </small>
+
+                <strong id="statHighest">
+                    81.77%
+                </strong>
+
+            </div>
+
+
+
+            <div class="stat">
+
+                <small>
+                    Average Match
+                </small>
+
+                <strong id="statAverage">
+                    60%
+                </strong>
+
+            </div>
+
+
+
+            <div class="stat">
+
+                <small>
+                    Recommended
+                </small>
+
+                <strong>
+                    12
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="analytics">
+
+
+            <div class="analytics-card">
+
+                <h3>
+                    Ranking Components
+                </h3>
+
+
+                <div class="bar">
+
+                    <div class="bar-label">
+
+                        <span>
+                            Semantic Match
+                        </span>
+
+                        <b>
+                            90.05%
+                        </b>
+
+                    </div>
+
+
+                    <div class="bar-track">
+
+                        <div
+                            class="bar-fill"
+                            style="width:90.05%"
+                        >
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="bar">
+
+                    <div class="bar-label">
+
+                        <span>
+                            Required Skills
+                        </span>
+
+                        <b>
+                            100%
+                        </b>
+
+                    </div>
+
+
+                    <div class="bar-track">
+
+                        <div
+                            class="bar-fill"
+                            style="width:100%"
+                        >
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="bar">
+
+                    <div class="bar-label">
+
+                        <span>
+                            Keyword Match
+                        </span>
+
+                        <b>
+                            38.59%
+                        </b>
+
+                    </div>
+
+
+                    <div class="bar-track">
+
+                        <div
+                            class="bar-fill"
+                            style="width:38.59%"
+                        >
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="bar">
+
+                    <div class="bar-label">
+
+                        <span>
+                            Experience
+                        </span>
+
+                        <b>
+                            80.32%
+                        </b>
+
+                    </div>
+
+
+                    <div class="bar-track">
+
+                        <div
+                            class="bar-fill"
+                            style="width:80.32%"
+                        >
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="analytics-card">
+
+                <h3>
+                    Nexora Recommendation
+                </h3>
+
+
+                <p
+                    style="
+                        color:#6f7888;
+                        line-height:1.7;
+                    "
+                >
+
+                    The strongest candidate currently
+                    demonstrates excellent semantic
+                    alignment and satisfies all required
+                    skills.
+
+                </p>
+
+
+                <div
+                    style="
+                        background:#eef3ef;
+                        padding:15px;
+                        border-radius:8px;
+                        color:#557462;
+                        font-size:13px;
+                        line-height:1.6;
+                    "
+                >
+
+                    ✓ Strong technical alignment
+
+                    <br>
+
+                    ✓ Required skills satisfied
+
+                    <br>
+
+                    ✓ Relevant experience
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT PAGE
+===================================================== -->
+
+<section
+    id="contact"
+    class="page"
+>
+
+
+    <div class="contact">
+
+
+        <div class="eyebrow">
+            Contact Nexora
+        </div>
+
+
+        <h1 class="section-title">
+            Let's make hiring better.
+        </h1>
+
+
+        <p class="section-subtitle">
+
+            Have a question, suggestion or
+            partnership idea? We'd love to hear from you.
+
+        </p>
+
+
+
+        <div class="contact-box">
+
+
+            <label>
+                Name
+            </label>
+
+            <input
+                type="text"
+                placeholder="Your name"
+            >
+
+
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                placeholder="you@example.com"
+            >
+
+
+
+            <label>
+                Message
+            </label>
+
+            <textarea
+                placeholder="How can we help?"
+            ></textarea>
+
+
+
+            <button
+                class="send"
+                onclick="sendMessage()"
+            >
+
+                Send Message
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div>
+        © 2026 Nexora AI
+    </div>
+
+    <div>
+        Intelligent hiring, made clearer.
+    </div>
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   BACKEND DATA
+=====================================================
+
+   TEMPORARY DATA
+
+   This is structured exactly around the fields
+   coming from your ranking engine.
+
+   Later, Flask can send this data from:
+
+       /api/candidates
+
+===================================================== */
+
+
+const backendData = [
+
+    {
+        rank: 1,
+
+        name: "Perfect Candidate",
+
+        initials: "PC",
+
+        role: "Software Engineer",
+
+        semantic_score: 90.05,
+
+        required_score: 100.00,
+
+        keyword_score: 38.59,
+
+        experience_score: 80.32,
+
+        final_score: 81.77,
+
+        skills: [
+            "Python",
+            "Machine Learning",
+            "FastAPI"
+        ],
+
+        status: "Recommended"
+    },
+
+
+    {
+        rank: 2,
+
+        name: "Strong Candidate",
+
+        initials: "SC",
+
+        role: "Software Engineer",
+
+        semantic_score: 85.00,
+
+        required_score: 90.00,
+
+        keyword_score: 45.00,
+
+        experience_score: 75.00,
+
+        final_score: 76.50,
+
+        skills: [
+            "Python",
+            "SQL",
+            "React"
+        ],
+
+        status: "Recommended"
+    },
+
+
+    {
+        rank: 3,
+
+        name: "Weak Candidate",
+
+        initials: "WC",
+
+        role: "Software Engineer",
+
+        semantic_score: 69.61,
+
+        required_score: 0.00,
+
+        keyword_score: 7.00,
+
+        experience_score: 50.00,
+
+        final_score: 42.20,
+
+        skills: [
+            "Python"
+        ],
+
+        status: "Review"
+    }
+
+];
+
+
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function showPage(pageName) {
+
+
+    const pages =
+        document.querySelectorAll(".page");
+
+
+    pages.forEach(page => {
+
+        page.classList.remove("active");
+
+    });
+
+
+    const selected =
+        document.getElementById(pageName);
+
+
+    if (selected) {
+
+        selected.classList.add("active");
+
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+
+/* =====================================================
+   INTERACTIVE HOME MESSAGE
+===================================================== */
+
+function changeMessage() {
+
+
+    const input =
+        document.getElementById("searchInput");
+
+
+    const message =
+        document.getElementById("message");
+
+
+    const value =
+        input.value.trim();
+
+
+    if (!value) {
+
+        message.textContent =
+            "Start with a role. We'll help you find the shortlist.";
+
+        return;
+
+    }
+
+
+    if (
+        value.toLowerCase().includes("software")
+    ) {
+
+        message.textContent =
+            "Great choice. Let's find engineers who can actually move the product forward.";
+
+    }
+
+    else if (
+        value.toLowerCase().includes("data")
+    ) {
+
+        message.textContent =
+            "Let's find the people who can turn your data into decisions.";
+
+    }
+
+    else if (
+        value.toLowerCase().includes("design")
+    ) {
+
+        message.textContent =
+            "Great design starts with great people. Let's find them.";
+
+    }
+
+    else {
+
+        message.textContent =
+            "Good start. Tell us the role — Nexora will handle the shortlist.";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function searchCandidates() {
+
+
+    const input =
+        document.getElementById("searchInput");
+
+
+    const query =
+        input.value.trim();
+
+
+    if (!query) {
+
+        input.focus();
+
+        document.getElementById("message")
+            .textContent =
+            "Tell us what role you're hiring for first.";
+
+        return;
+
+    }
+
+
+    document.getElementById("searchedRole")
+        .textContent = query;
+
+
+    document.getElementById("roleTitle")
+        ?.textContent;
+
+
+    renderCandidates();
+
+
+    showPage("results");
+
+}
+
+
+
+/* =====================================================
+   RENDER TOP 3
+===================================================== */
+
+function renderCandidates() {
+
+
+    const topContainer =
+        document.getElementById("topCandidates");
+
+
+    const table =
+        document.getElementById("candidateTable");
+
+
+    topContainer.innerHTML = "";
+
+    table.innerHTML = "";
+
+
+
+    /*
+       Sort candidates by final score
+    */
+
+    const sorted =
+        [...backendData]
+        .sort(
+            (a, b) =>
+                b.final_score -
+                a.final_score
+        );
+
+
+
+    /* ============================================
+       TOP 3
+    ============================================ */
+
+    sorted.slice(0, 3).forEach(
+        (candidate, index) => {
+
+
+            const card =
+                document.createElement("div");
+
+
+            card.className =
+                "candidate-card";
+
+
+            if (index === 0) {
+
+                card.classList.add("first");
+
+            }
+
+
+            card.innerHTML = `
+
+                <div class="rank">
+
+                    #${index + 1}
+
+                </div>
+
+
+                <div class="candidate-name">
+
+                    ${candidate.name}
+
+                </div>
+
+
+                <div class="candidate-role">
+
+                    ${candidate.role}
+
+                </div>
+
+
+                <div class="score">
+
+                    ${candidate.final_score.toFixed(2)}%
+
+                    <div class="score-label">
+
+                        AI Match Score
+
+                    </div>
+
+                </div>
+
+
+                <div class="metrics">
+
+
+                    <div class="metric">
+
+                        <span>
+                            Semantic Match
+                        </span>
+
+                        <strong>
+                            ${candidate.semantic_score.toFixed(2)}%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="metric">
+
+                        <span>
+                            Required Skills
+                        </span>
+
+                        <strong>
+                            ${candidate.required_score.toFixed(2)}%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="metric">
+
+                        <span>
+                            Keyword Match
+                        </span>
+
+                        <strong>
+                            ${candidate.keyword_score.toFixed(2)}%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="metric">
+
+                        <span>
+                            Experience
+                        </span>
+
+                        <strong>
+                            ${candidate.experience_score.toFixed(2)}%
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="skill-list">
+
+                    ${candidate.skills
+                        .map(
+                            skill =>
+                                `<span class="skill">
+                                    ${skill}
+                                </span>`
+                        )
+                        .join("")
+                    }
+
+                </div>
+
+            `;
+
+
+            topContainer.appendChild(card);
+
+        }
+    );
+
+
+
+    /* ============================================
+       ALL CANDIDATES
+    ============================================ */
+
+    sorted.forEach(
+        (candidate, index) => {
+
+
+            const row =
+                document.createElement("div");
+
+
+            row.className =
+                "candidate-row";
+
+
+            row.innerHTML = `
+
+                <div>
+                    #${index + 1}
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        ${candidate.name}
+                    </strong>
+
+                    <br>
+
+                    <span
+                        style="
+                            color:#89919f;
+                            font-size:10px;
+                        "
+                    >
+                        ${candidate.role}
+                    </span>
+
+                </div>
+
+
+                <div class="row-score">
+
+                    ${candidate.final_score.toFixed(2)}%
+
+                </div>
+
+
+                <div>
+
+                    ${candidate.required_score.toFixed(2)}%
+
+                </div>
+
+
+                <div>
+
+                    ${candidate.experience_score.toFixed(2)}%
+
+                </div>
+
+            `;
+
+
+            table.appendChild(row);
+
+        }
+    );
+
+
+
+    /* ============================================
+       UPDATE DASHBOARD
+    ============================================ */
+
+    updateDashboard(sorted);
+
+}
+
+
+
+/* =====================================================
+   DASHBOARD DATA
+===================================================== */
+
+function updateDashboard(candidates) {
+
+
+    if (!candidates.length) {
+
+        return;
+
+    }
+
+
+    const highest =
+        Math.max(
+            ...candidates.map(
+                c => c.final_score
+            )
+        );
+
+
+    const average =
+        candidates.reduce(
+            (sum, c) =>
+                sum + c.final_score,
+            0
+        ) / candidates.length;
+
+
+
+    document.getElementById(
+        "statCandidates"
+    ).textContent =
+        candidates.length;
+
+
+    document.getElementById(
+        "statHighest"
+    ).textContent =
+        highest.toFixed(2) + "%";
+
+
+    document.getElementById(
+        "statAverage"
+    ).textContent =
+        average.toFixed(2) + "%";
+
+}
+
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+function sendMessage() {
+
+
+    alert(
+        "Thank you! The Nexora team will get back to you."
+    );
+
+}
+
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+renderCandidates();
+
+</script>
+
+
+</body>
+
+</html>
